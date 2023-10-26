@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{56DC097F-EB9D-46D9-AFA2-3B6D55F27E2B}|https">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MVCDog/appsettings.json">
+    <Files>
+      <File FileName="MVCDog/Models/Dog.cs" Line="11" Column="8" />
+      <File FileName="MVCDog/ApplicationContext.cs" />
+      <File FileName="MVCDog/Controllers/DogsController.cs" />
+      <File FileName="MVCDog/Views/Dogs/Details.cshtml" />
+      <File FileName="MVCDog/appsettings.json" Line="10" Column="28" />
+      <File FileName="MVCDog/Models/Contact.cs" />
+      <File FileName="MVCDog/Models/Breeder.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MVCDog" expanded="True">
+            <Node name="MVCDog">
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MVCDog PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
