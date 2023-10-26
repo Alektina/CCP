@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lQGb//xeBDLgoPYUIlndu23cePjhBZNbCFBgkZDDX4dAV2Dzxb3WKP4IHb0gBdtuFny40+Lg1UXIu1ceF2pezA==",
+  "dgSpecHash": "wf7bJd/lQN57GHbeKSEZxe99rkrgzcjMkX69H2i6P98JL3s/31HFKFSGBf2qEhpPGiFm+qwdEDCZdKQGjtorCQ==",
   "success": true,
-  "projectFilePath": "/Users/alenushka/Projects/MVCDog/MVCDog/MVCDog.csproj",
+  "projectFilePath": "/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/MVCDog.csproj",
   "expectedPackageFiles": [
     "/Users/alenushka/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/alenushka/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",

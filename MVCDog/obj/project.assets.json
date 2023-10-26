@@ -11215,11 +11215,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alenushka/Projects/MVCDog/MVCDog/MVCDog.csproj",
+      "projectUniqueName": "/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/MVCDog.csproj",
       "projectName": "MVCDog",
-      "projectPath": "/Users/alenushka/Projects/MVCDog/MVCDog/MVCDog.csproj",
+      "projectPath": "/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/MVCDog.csproj",
       "packagesPath": "/Users/alenushka/.nuget/packages/",
-      "outputPath": "/Users/alenushka/Projects/MVCDog/MVCDog/obj/",
+      "outputPath": "/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/alenushka/.nuget/NuGet/NuGet.Config"

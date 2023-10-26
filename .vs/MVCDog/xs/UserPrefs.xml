@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{56DC097F-EB9D-46D9-AFA2-3B6D55F27E2B}|https">
   <MonoDevelop.Ide.Workbench ActiveDocument="MVCDog/appsettings.json">
     <Files>
-      <File FileName="MVCDog/Models/Dog.cs" Line="11" Column="8" />
+      <File FileName="MVCDog/Models/Dog.cs" />
       <File FileName="MVCDog/ApplicationContext.cs" />
       <File FileName="MVCDog/Controllers/DogsController.cs" />
       <File FileName="MVCDog/Views/Dogs/Details.cshtml" />
@@ -12,7 +12,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MVCDog" expanded="True">
+          <Node name="MVCDog">
             <Node name="MVCDog">
               <Node name="Models" expanded="True" />
             </Node>
