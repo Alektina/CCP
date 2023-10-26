@@ -101,12 +101,11 @@ namespace MVCDog
                 {
                     Id = 1,
                     Email = "kennelsirocco@gmail.com",
-                    Telefon_nr = 0703022152,
+                    Phone_nr = 0703022152,
                     Address = "Torpavägen 60, 461 77 Sjuntorp",
                     Url = "https://kennelsirocco.com/",
                     Social_media = "https://www.facebook.com/elin.sirocco",
                     Country = "Sweden",
-                    Added_date = "2022-03-09",
                     About_us = "Sirocco was founded by Elin & Birgitta Gunnarsson in 2005, owners of Chinese Crested Dogs since 1999.\nSince 2017 Elin is the sole owner of the Sirocco prefix."
 
                 });
