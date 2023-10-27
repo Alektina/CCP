@@ -16,16 +16,60 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Contacts/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdHMvQ3JlYXRlLmNzaHRtbA==
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Breeders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJlZWRlcnMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Contacts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdHMvSW5kZXguY3NodG1s
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Breeders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJlZWRlcnMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Breeders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJlZWRlcnMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Breeders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJlZWRlcnMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Breeders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQnJlZWRlcnMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Countries/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRyaWVzL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Countries/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRyaWVzL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Countries/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRyaWVzL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Countries/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRyaWVzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Countries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRyaWVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Dogs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9ncy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Dogs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9ncy9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Dogs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9ncy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Dogs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9ncy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Dogs/Index.cshtml]
@@ -38,6 +82,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Kennels/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2VubmVscy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Kennels/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2VubmVscy9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Kennels/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2VubmVscy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Kennels/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2VubmVscy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Kennels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2VubmVscy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/alenushka/Desktop/CCP/MVCDogGit/MVCDog/Views/Shared/Error.cshtml]

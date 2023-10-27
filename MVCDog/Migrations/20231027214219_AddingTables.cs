@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -37,16 +38,17 @@ namespace MVCDog.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Reg_number = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Birth_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Death_date = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Sex_char = table.Column<string>(type: "nvarchar(1)", nullable: false),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Height = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Powderpuff = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TitleId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CountryID = table.Column<int>(type: "int", nullable: true),
+                    Birth_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Sex = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Hairlayers = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TitleId = table.Column<int>(type: "int", nullable: true),
                     DogId_Mother = table.Column<int>(type: "int", nullable: true),
                     DogId_Father = table.Column<int>(type: "int", nullable: true),
+                    Death_date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Other_info = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -60,27 +62,13 @@ namespace MVCDog.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Fil_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    File_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DogId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Galleries", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Offsprings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    MotherId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Offsprings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -122,14 +110,33 @@ namespace MVCDog.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Country",
+                columns: table => new
+                {
+                    CountryID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CountryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DogId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Country", x => x.CountryID);
+                    table.ForeignKey(
+                        name: "FK_Country_Dogs_DogId",
+                        column: x => x.DogId,
+                        principalTable: "Dogs",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Kennels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BreederId = table.Column<int>(type: "int", nullable: false),
-                    ContactId = table.Column<int>(type: "int", nullable: false),
+                    BreederId = table.Column<int>(type: "int", nullable: true),
+                    ContactId = table.Column<int>(type: "int", nullable: true),
                     DogId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -149,6 +156,7 @@ namespace MVCDog.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
+                    Birth_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DogId = table.Column<int>(type: "int", nullable: false),
                     MotherId = table.Column<int>(type: "int", nullable: false),
                     FatherId = table.Column<int>(type: "int", nullable: false)
@@ -237,30 +245,6 @@ namespace MVCDog.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DogOffspring",
-                columns: table => new
-                {
-                    DogsId = table.Column<int>(type: "int", nullable: false),
-                    OffspringsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DogOffspring", x => new { x.DogsId, x.OffspringsId });
-                    table.ForeignKey(
-                        name: "FK_DogOffspring_Dogs_DogsId",
-                        column: x => x.DogsId,
-                        principalTable: "Dogs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DogOffspring_Offsprings_OffspringsId",
-                        column: x => x.OffspringsId,
-                        principalTable: "Offsprings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "DogOwner",
                 columns: table => new
                 {
@@ -315,12 +299,12 @@ namespace MVCDog.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telefon_nr = table.Column<int>(type: "int", nullable: false),
+                    Phone_nr = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Social_media = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Social_media = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Added_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Added_date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     About_us = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BreederId = table.Column<int>(type: "int", nullable: true),
                     KennelId = table.Column<int>(type: "int", nullable: true),
@@ -353,23 +337,23 @@ namespace MVCDog.Migrations
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "Id", "About_us", "Added_date", "Address", "BreederId", "Country", "Email", "KennelId", "OwnerId", "Social_media", "Telefon_nr", "Url" },
-                values: new object[] { 1, "Sirocco was founded by Elin & Birgitta Gunnarsson in 2005, owners of Chinese Crested Dogs since 1999.\nSince 2017 Elin is the sole owner of the Sirocco prefix.", "2022-03-09", "Torpavägen 60, 461 77 Sjuntorp", null, "Sweden", "kennelsirocco@gmail.com", null, null, "https://www.facebook.com/elin.sirocco", 703022152, "https://kennelsirocco.com/" });
+                columns: new[] { "Id", "About_us", "Added_date", "Address", "BreederId", "Country", "Email", "KennelId", "OwnerId", "Phone_nr", "Social_media", "Url" },
+                values: new object[] { 1, "Sirocco was founded by Elin & Birgitta Gunnarsson in 2005, owners of Chinese Crested Dogs since 1999.\nSince 2017 Elin is the sole owner of the Sirocco prefix.", null, "Torpavägen 60, 461 77 Sjuntorp", null, "Sweden", "kennelsirocco@gmail.com", null, null, 703022152, "https://www.facebook.com/elin.sirocco", "https://kennelsirocco.com/" });
 
             migrationBuilder.InsertData(
                 table: "Dogs",
-                columns: new[] { "Id", "Birth_date", "Color", "Death_date", "DogId_Father", "DogId_Mother", "Height", "Name", "Nickname", "Other_info", "Powderpuff", "Reg_number", "Sex_char", "TitleId", "Weight" },
+                columns: new[] { "Id", "Birth_date", "Color", "CountryID", "Death_date", "DogId_Father", "DogId_Mother", "Hairlayers", "Height", "Name", "Nickname", "Other_info", "Reg_number", "Sex", "TitleId", "Weight" },
                 values: new object[,]
                 {
-                    { 1, "2016-02-24", "Blue with white markings", null, 2, 3, "32 cm", "Sirocco Lunatic Toc Tamarine", "Morgan", null, "Hailless", "SE23916/2016", "1", null, "5 kg" },
-                    { 2, "2012-04-27", "Spotted", null, null, null, "33 cm", "Hooki z Teramonu", "Hooki", null, "Hailless", "SE59047/2012", "1", null, "5 kg" },
-                    { 3, "2013-03-31", "Spotted", null, null, null, "33 cm", "Sirocco Endless Locks Of Eventide", "Viska", null, "Hailless", "SE29122/2013", "2", null, "5 kg" }
+                    { 1, null, "Blue with white markings", null, null, 2, 3, "Hailless", "32 cm", "Sirocco Lunatic Toc Tamarine", "Morgan", null, "SE23916/2016", null, null, "5 kg" },
+                    { 2, null, "Spotted", null, null, null, null, "Hailless", "33 cm", "Hooki z Teramonu", "Hooki", null, "SE59047/2012", null, null, "5 kg" },
+                    { 3, null, "Spotted", null, null, null, null, "Hailless", "33 cm", "Sirocco Endless Locks Of Eventide", "Viska", null, "SE29122/2013", null, null, "5 kg" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Kennels",
                 columns: new[] { "Id", "BreederId", "ContactId", "DogId", "Name" },
-                values: new object[] { 1, 1, 1, null, "Elin Gunnarsson" });
+                values: new object[] { 1, 1, 1, null, "Sirocco" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_BreederDog_DogsId",
@@ -397,14 +381,14 @@ namespace MVCDog.Migrations
                 column: "OwnerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Country_DogId",
+                table: "Country",
+                column: "DogId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DogGallery_GalleriesId",
                 table: "DogGallery",
                 column: "GalleriesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DogOffspring_OffspringsId",
-                table: "DogOffspring",
-                column: "OffspringsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DogOwner_OwnersId",
@@ -445,10 +429,10 @@ namespace MVCDog.Migrations
                 name: "Contacts");
 
             migrationBuilder.DropTable(
-                name: "DogGallery");
+                name: "Country");
 
             migrationBuilder.DropTable(
-                name: "DogOffspring");
+                name: "DogGallery");
 
             migrationBuilder.DropTable(
                 name: "DogOwner");
@@ -470,9 +454,6 @@ namespace MVCDog.Migrations
 
             migrationBuilder.DropTable(
                 name: "Galleries");
-
-            migrationBuilder.DropTable(
-                name: "Offsprings");
 
             migrationBuilder.DropTable(
                 name: "Owners");

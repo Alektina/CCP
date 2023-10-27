@@ -1,4 +1,114 @@
-﻿@model List<Dog>
+@model IEnumerable<MVCDog.Models.Dog>
 
-<h1>All dogs</h1>
+@{
+    ViewData["Title"] = "Index";
+}
 
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nickname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reg_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birth_date)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hairlayers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TitleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogId_Mother)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogId_Father)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Death_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Other_info)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reg_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birth_date)                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hairlayers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogId_Mother)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogId_Father)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Death_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other_info)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

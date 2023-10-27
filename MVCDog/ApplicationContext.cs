@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using MVCDog.Models;
 
@@ -17,9 +17,9 @@ namespace MVCDog
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<Kennel> Kennels { get; set; }
         public DbSet<Litter> Litters { get; set; }
-        public DbSet<Merit> Merits { get; set; }
-        public DbSet<Offspring> Offsprings { get; set; }
+        public DbSet<Merit> Merits { get; set; }        
         public DbSet<Owner> Owners { get; set; }
+        public DbSet<Country> Countries{ get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,13 +31,12 @@ namespace MVCDog
                     Id = 1,
                     Name = "Sirocco Lunatic Toc Tamarine",
                     Nickname = "Morgan",
-                    Reg_number = "SE23916/2016",
-                    Birth_date = "2016-02-24",
-                    Sex_char = '1',
+                    Reg_number = "SE23916/2016", 
+                   
                     Color = "Blue with white markings",
                     Weight = "5 kg",
                     Height = "32 cm",
-                    Powderpuff = "Hailless",
+                    Hairlayers = "Hailless",
                     DogId_Father = 2,
                     DogId_Mother = 3
                     
@@ -49,12 +48,11 @@ namespace MVCDog
                     Name = "Hooki z Teramonu",
                     Nickname = "Hooki",
                     Reg_number = "SE59047/2012",
-                    Birth_date = "2012-04-27",
-                    Sex_char = '1',
+                    
                     Color = "Spotted",
                     Weight = "5 kg",
                     Height = "33 cm",
-                    Powderpuff = "Hailless"                   
+                    Hairlayers = "Hailless"                   
                    
 
                 });
@@ -65,12 +63,11 @@ namespace MVCDog
                     Name = "Sirocco Endless Locks Of Eventide",
                     Nickname = "Viska",
                     Reg_number = "SE29122/2013",
-                    Birth_date = "2013-03-31",
-                    Sex_char = '2',
+                    
                     Color = "Spotted",
                     Weight = "5 kg",
                     Height = "33 cm",
-                    Powderpuff = "Hailless"
+                    Hairlayers= "Hailless"
 
                 });
             //Table Breeders
@@ -90,7 +87,7 @@ namespace MVCDog
                 new Kennel
                 {
                     Id = 1,
-                    Name = "Elin Gunnarsson",
+                    Name = "Sirocco",
                     BreederId = 1,
                     ContactId = 1
 
@@ -110,5 +107,8 @@ namespace MVCDog
 
                 });
         }
+
+
+        public DbSet<MVCDog.Models.Country> Country { get; set; } = default!;
     }
 }

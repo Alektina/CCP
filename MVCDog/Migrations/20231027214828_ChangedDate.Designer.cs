@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCDog.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20231026141459_AddingTables")]
-    partial class AddingTables
+    [Migration("20231027214828_ChangedDate")]
+    partial class ChangedDate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,21 +68,6 @@ namespace MVCDog.Migrations
                     b.HasIndex("GalleriesId");
 
                     b.ToTable("DogGallery");
-                });
-
-            modelBuilder.Entity("DogOffspring", b =>
-                {
-                    b.Property<int>("DogsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OffspringsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DogsId", "OffspringsId");
-
-                    b.HasIndex("OffspringsId");
-
-                    b.ToTable("DogOffspring");
                 });
 
             modelBuilder.Entity("DogOwner", b =>
@@ -148,9 +133,8 @@ namespace MVCDog.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Added_date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("Added_date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -173,11 +157,12 @@ namespace MVCDog.Migrations
                     b.Property<int?>("OwnerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Social_media")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Telefon_nr")
+                    b.Property<int>("Phone_nr")
                         .HasColumnType("int");
+
+                    b.Property<string>("Social_media")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -198,14 +183,35 @@ namespace MVCDog.Migrations
                         {
                             Id = 1,
                             About_us = "Sirocco was founded by Elin & Birgitta Gunnarsson in 2005, owners of Chinese Crested Dogs since 1999.\nSince 2017 Elin is the sole owner of the Sirocco prefix.",
-                            Added_date = "2022-03-09",
                             Address = "Torpavägen 60, 461 77 Sjuntorp",
                             Country = "Sweden",
                             Email = "kennelsirocco@gmail.com",
+                            Phone_nr = 703022152,
                             Social_media = "https://www.facebook.com/elin.sirocco",
-                            Telefon_nr = 703022152,
                             Url = "https://kennelsirocco.com/"
                         });
+                });
+
+            modelBuilder.Entity("MVCDog.Models.Country", b =>
+                {
+                    b.Property<int>("CountryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CountryID"));
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DogId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CountryID");
+
+                    b.HasIndex("DogId");
+
+                    b.ToTable("Country");
                 });
 
             modelBuilder.Entity("MVCDog.Models.Dog", b =>
@@ -216,16 +222,17 @@ namespace MVCDog.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Birth_date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("Birth_date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Color")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Death_date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("CountryID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Death_date")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("DogId_Father")
                         .HasColumnType("int");
@@ -233,8 +240,10 @@ namespace MVCDog.Migrations
                     b.Property<int?>("DogId_Mother")
                         .HasColumnType("int");
 
+                    b.Property<string>("Hairlayers")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Height")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -248,23 +257,17 @@ namespace MVCDog.Migrations
                     b.Property<string>("Other_info")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Powderpuff")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Reg_number")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Sex_char")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("TitleId")
+                    b.Property<string>("Sex")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TitleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Weight")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -275,42 +278,36 @@ namespace MVCDog.Migrations
                         new
                         {
                             Id = 1,
-                            Birth_date = "2016-02-24",
                             Color = "Blue with white markings",
                             DogId_Father = 2,
                             DogId_Mother = 3,
+                            Hairlayers = "Hailless",
                             Height = "32 cm",
                             Name = "Sirocco Lunatic Toc Tamarine",
                             Nickname = "Morgan",
-                            Powderpuff = "Hailless",
                             Reg_number = "SE23916/2016",
-                            Sex_char = "1",
                             Weight = "5 kg"
                         },
                         new
                         {
                             Id = 2,
-                            Birth_date = "2012-04-27",
                             Color = "Spotted",
+                            Hairlayers = "Hailless",
                             Height = "33 cm",
                             Name = "Hooki z Teramonu",
                             Nickname = "Hooki",
-                            Powderpuff = "Hailless",
                             Reg_number = "SE59047/2012",
-                            Sex_char = "1",
                             Weight = "5 kg"
                         },
                         new
                         {
                             Id = 3,
-                            Birth_date = "2013-03-31",
                             Color = "Spotted",
+                            Hairlayers = "Hailless",
                             Height = "33 cm",
                             Name = "Sirocco Endless Locks Of Eventide",
                             Nickname = "Viska",
-                            Powderpuff = "Hailless",
                             Reg_number = "SE29122/2013",
-                            Sex_char = "2",
                             Weight = "5 kg"
                         });
                 });
@@ -330,7 +327,7 @@ namespace MVCDog.Migrations
                     b.Property<int>("DogId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Fil_name")
+                    b.Property<string>("File_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -347,10 +344,10 @@ namespace MVCDog.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BreederId")
+                    b.Property<int?>("BreederId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ContactId")
+                    b.Property<int?>("ContactId")
                         .HasColumnType("int");
 
                     b.Property<int?>("DogId")
@@ -372,7 +369,7 @@ namespace MVCDog.Migrations
                             Id = 1,
                             BreederId = 1,
                             ContactId = 1,
-                            Name = "Elin Gunnarsson"
+                            Name = "Sirocco"
                         });
                 });
 
@@ -383,6 +380,9 @@ namespace MVCDog.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Birth_date")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("DogId")
                         .HasColumnType("int");
@@ -447,25 +447,6 @@ namespace MVCDog.Migrations
                     b.HasIndex("DogId");
 
                     b.ToTable("Merits");
-                });
-
-            modelBuilder.Entity("MVCDog.Models.Offspring", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("MotherId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Offsprings");
                 });
 
             modelBuilder.Entity("MVCDog.Models.Owner", b =>
@@ -554,21 +535,6 @@ namespace MVCDog.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DogOffspring", b =>
-                {
-                    b.HasOne("MVCDog.Models.Dog", null)
-                        .WithMany()
-                        .HasForeignKey("DogsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MVCDog.Models.Offspring", null)
-                        .WithMany()
-                        .HasForeignKey("OffspringsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DogOwner", b =>
                 {
                     b.HasOne("MVCDog.Models.Dog", null)
@@ -597,6 +563,13 @@ namespace MVCDog.Migrations
                     b.HasOne("MVCDog.Models.Owner", null)
                         .WithMany("Contacts")
                         .HasForeignKey("OwnerId");
+                });
+
+            modelBuilder.Entity("MVCDog.Models.Country", b =>
+                {
+                    b.HasOne("MVCDog.Models.Dog", null)
+                        .WithMany("Countries")
+                        .HasForeignKey("DogId");
                 });
 
             modelBuilder.Entity("MVCDog.Models.Kennel", b =>
@@ -646,6 +619,8 @@ namespace MVCDog.Migrations
 
             modelBuilder.Entity("MVCDog.Models.Dog", b =>
                 {
+                    b.Navigation("Countries");
+
                     b.Navigation("Kennels");
 
                     b.Navigation("Litters");
