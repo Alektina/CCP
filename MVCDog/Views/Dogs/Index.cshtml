@@ -71,7 +71,7 @@
                 @Html.DisplayFor(modelItem => item.Reg_number)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Birth_date)                
+                @(item.BirthDate != null ? item.BirthDate.Value.ToString("yyyy-MM-dd") : "")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Sex)
@@ -98,7 +98,7 @@
                 @Html.DisplayFor(modelItem => item.DogId_Father)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Death_date)
+                @(item.DeathDate != null ? item.DeathDate.Value.ToString("yyyy-MM-dd") : "")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Other_info)
