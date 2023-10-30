@@ -1,31 +1,33 @@
 ﻿<Properties StartupConfiguration="{56DC097F-EB9D-46D9-AFA2-3B6D55F27E2B}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MVCDog/appsettings.json">
     <Files>
-      <File FileName="MVCDog/Models/Dog.cs" />
-      <File FileName="MVCDog/ApplicationContext.cs" />
-      <File FileName="MVCDog/Controllers/DogsController.cs" />
-      <File FileName="MVCDog/Views/Dogs/Details.cshtml" />
+      <File FileName="MVCDog/Views/Dogs/Index.cshtml" />
+      <File FileName="MVCDog/Models/Role.cs" />
+      <File FileName="MVCDog/ApplicationContext.cs" Line="13" Column="1" />
       <File FileName="MVCDog/appsettings.json" Line="10" Column="28" />
-      <File FileName="MVCDog/Models/Contact.cs" />
-      <File FileName="MVCDog/Models/Breeder.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MVCDog">
+          <Node name="MVCDog" expanded="True">
             <Node name="MVCDog">
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Dogs" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.MVCDog PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MVCDog PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

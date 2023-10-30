@@ -20,6 +20,7 @@ namespace MVCDog
         public DbSet<Merit> Merits { get; set; }        
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Country> Countries{ get; set; }
+        public DbSet<Role> Roles { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
